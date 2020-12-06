@@ -7,7 +7,15 @@ module.exports = {
   // ],
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    
+    extend: {
+      outline: {
+        none: '2px solid transparent !important',
+      }
+    },
+    container: {
+      center: true,
+      padding: "2rem"
+    }
   },
   variants: {
     extend: {},

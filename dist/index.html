@@ -7,12 +7,106 @@
     <link rel="stylesheet" href="style.css" />
     <!-- <link href="tailwind.css" rel="stylesheet" /> -->
   </head>
-  <body class="bg-gray-900 text-gray-300">
-    <div class="py-4 px-4 rounded">
-      <p>NajOptimalnije</p>
-    </div>
 
-    <!-- VOLUME -->
-    <div class=""></div>
+  <body class="bg-black text-gray-200">
+    <div class="container">
+      <!-- Network info
+    -------------------------------------------------->
+      <div class="grid grid-flow-col w-full my-8">
+        <div class="text-gray-400 text-sm">
+          <span class="fa fa-wifi">}.{</span>
+          <span class="font-extralight ml-2">NajOptimalnije </span>
+        </div>
+        <div class="text-gray-400 text-sm text-right">
+          <span class="font-extralight">Signal: </span>
+          <strong>ooo</strong>
+        </div>
+      </div>
+
+      <div class="border-b border-gray-800"></div>
+
+      <!-- MODE & SAMPLE RATE
+    -------------------------------------------------->
+      <div class="my-8 grid grid-flow-col w-1/3 m-auto">
+        <div class="mode font-light text-yellow-600">PCM</div>
+        <div class="sr font-light text-yellow-600 text-right">96kHz</div>
+      </div>
+
+      <!-- VOLUME 
+    -------------------------------------------------->
+      <div class="w-full grid grid-flow-col my-8 border-gray-700">
+        <button
+          class="hover:bg-gray-700 text-gray-400 border-gray-600 border border-r-0 py-2 px-3 rounded-l outline-none"
+        >
+          -5
+        </button>
+        <button
+          class="hover:bg-gray-700 text-gray-400 border-gray-600 border py-2 px-3 outline-none"
+        >
+          -1
+        </button>
+
+        <div class="px-4 text-center w-36">
+          <span class="text-yellow-500 font-light text-4xl">245</span>
+        </div>
+
+        <button
+          class="hover:bg-gray-700 text-gray-400 border-gray-600 border py-2 px-3 outline-none"
+        >
+          +1
+        </button>
+        <button
+          class="hover:bg-gray-700 text-gray-400 border-gray-600 border border-l-0 py-2 px-3 rounded-r outline-none"
+        >
+          +5
+        </button>
+      </div>
+
+      <!-- FILTERS
+    -------------------------------------------------->
+      <div class="filters my-8">
+        <div class="filters_buttons grid grid-flow-col">
+          <button
+            class="hover:bg-gray-700 text-gray-400 border-gray-600 border border-r-0 py-2 px-3 rounded-l outline-none"
+          >
+            F1
+          </button>
+          <button
+            class="hover:bg-gray-700 bg-gray-700 text-yellow-400 border-gray-600 border border-r-0 py-2 px-3 outline-none"
+          >
+            F2
+          </button>
+          <button
+            class="hover:bg-gray-700 text-gray-400 border-gray-600 border py-2 px-3 outline-none"
+          >
+            F3
+          </button>
+          <button
+            class="hover:bg-gray-700 text-gray-400 border-gray-600 border border-l-0 py-2 px-3 rounded-r outline-none"
+          >
+            F4
+          </button>
+        </div>
+        <div class="filters_name text-gray-400 text-center text-sm mt-4">
+          <span class="font-extralight">Filter 2: </span>
+          <strong>Slow Roll-off</strong>
+        </div>
+      </div>
+
+      <div class="border-b border-gray-800"></div>
+
+      <!-- McFIFO XO & Delay
+    -------------------------------------------------->
+      <div class="grid grid-flow-col w-full my-6">
+        <div class="text-gray-400 text-sm">
+          <span class="font-extralight">XO 2: </span>
+          <strong>49.152MHz</strong>
+        </div>
+        <div class="text-gray-400 text-sm text-right">
+          <span class="font-extralight">Delay: </span>
+          <strong>0.2sec</strong>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
