@@ -42,6 +42,19 @@
   transition: all 0.3s ease-in-out;
 }
 
+.volumeWrap {
+  position: relative;
+}
+
+#volumeMin,
+#volumeMax {
+  position: absolute;
+  top: -0.5em;
+}
+#volumeMax {
+  right: 0;
+}
+
 /* 
     SEPARATOR
 */

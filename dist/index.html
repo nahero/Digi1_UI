@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f59e0b" />
     <title>Digi1 UI</title>
     <link rel="stylesheet" href="main.css" />
     <!-- Font awesome -->
     <link rel="stylesheet" href="styles/all.css" />
     <!-- Tailwind css -->
     <link rel="stylesheet" href="styles/tailwind.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="images/logo192.png" />
   </head>
 
   <body class="bg-dark text-gray-200">
@@ -18,7 +21,7 @@
 
       <!-- Network info
     -------------------------------------------------->
-      <div class="grid grid-flow-col w-full my-6">
+      <div class="grid grid-flow-col w-full my-2">
         <div class="text-gray-400 text-sm">
           <div
             class="bg-black border border-gray-800 p-2 w-10 h-10 rounded-full inline-grid"
@@ -56,11 +59,13 @@
     -------------------------------------------------->
       <div class="volume">
         <!-- Volume value -->
-        <div class="px-4 text-center mt-8 mb-4">
+        <div class="px-4 text-center mt-8 mb-6">
           <span class="text-yellow-500 text-6xl" id="volumeDisplay">220</span>
         </div>
         <!-- Volume control -->
-        <div>
+        <div class="volumeWrap text-gray-500">
+          <span id="volumeMin" class="text-xs">200</span>
+          <span id="volumeMax" class="text-xs">255</span>
           <input
             type="range"
             name="volume"
@@ -73,7 +78,7 @@
 
         <!-- Precise volume controls +/-1 and +/-5 -->
         <div
-          class="w-full grid grid-flow-col grid-cols-4 mt-4 mb-6 bg-black rounded h-12"
+          class="w-full grid grid-flow-col grid-cols-4 mt-2 mb-6 bg-black rounded h-12"
         >
           <button class="btn volumeBtn rounded-l" value="-5">-5</button>
           <button class="btn volumeBtn" value="-1">-1</button>
@@ -88,7 +93,7 @@
     -------------------------------------------------->
       <div class="filters my-6">
         <div
-          class="filters_name text-gray-400 text-center text-sm mb-4 bg-black border border-gray-800 rounded-full w-full h-12 py-3"
+          class="filters_name text-gray-400 text-center text-sm mb-4 bg-black border border-gray-800 rounded-full w-full py-2"
         >
           <span class="text-white"
             >Filter <span id="filter_val">2</span>:
@@ -105,11 +110,11 @@
         </div>
       </div>
 
-      <div class="separator"></div>
+      <!-- <div class="separator"></div> -->
 
       <!-- McFIFO XO & Delay
     -------------------------------------------------->
-      <div class="grid grid-flow-col w-full my-6">
+      <div class="grid grid-flow-col w-full my-4">
         <div class="text-gray-400 text-sm">
           <span class="font-extralight">XO 2: </span>
           <strong>49.152MHz</strong>
