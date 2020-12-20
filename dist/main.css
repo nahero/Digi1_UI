@@ -49,9 +49,12 @@
 #volumeMin,
 #volumeMax {
   position: absolute;
-  top: -0.5em;
+  bottom: auto;
+  left: 0;
+  top: -8px;
 }
 #volumeMax {
+  left: auto;
   right: 0;
 }
 
