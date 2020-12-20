@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn {
+  @apply border border-gray-700 border-r-0 text-gray-400 hover:bg-gray-800 outline-none;
+  outline: none !important;
+}
+.btn:last-of-type {
+  @apply border;
+}
 button.active {
-  @apply bg-gray-700 text-yellow-400;
+  @apply bg-gray-800 text-yellow-400;
 }

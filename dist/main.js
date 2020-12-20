@@ -144,7 +144,7 @@ filterBtns.forEach(item => {
         filterObj.filter = event.target.value;
         console.log("filterObj: ", filterObj);
         console.log("filterObjSTRING: ", JSON.stringify(filterObj));
-        socket.send(JSON.stringify(filterObj));
+        // socket.send(JSON.stringify(filterObj));
         // set "active" class to proper filterBtn
         updateFilterDisplay();
     });
