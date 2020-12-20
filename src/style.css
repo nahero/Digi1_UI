@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn {
-  @apply border border-gray-700 border-r-0 text-gray-400 hover:bg-gray-800 outline-none;
+  @apply border border-gray-800 border-r-0 text-gray-200 hover:bg-gray-800 outline-none;
   outline: none !important;
 }
 .btn:last-of-type {
@@ -11,4 +11,7 @@
 }
 button.active {
   @apply bg-gray-800 text-yellow-400;
+}
+.btn {
+  -webkit-tap-highlight-color: #f59e0b;
 }

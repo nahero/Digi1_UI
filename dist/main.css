@@ -1,5 +1,8 @@
 .bg-dark {
-  background-color: #151617;
+  background-color: #111;
+}
+.bg-black {
+  background: rgba(0, 0, 0, 0.9);
 }
 
 /* 
@@ -20,8 +23,12 @@
   height: 4px;
   cursor: pointer;
   /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
-  background: #778;
-  background: linear-gradient(90deg, rgb(245, 158, 11) 50%, #778 50%);
+  background: rgb(64, 64, 64);
+  background: linear-gradient(
+    90deg,
+    rgb(245, 158, 11) 50%,
+    rgb(64, 64, 64) 50%
+  );
   border-radius: 2px;
   position: relative;
   /* border: 0.2px solid #010101; */

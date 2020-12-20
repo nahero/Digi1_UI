@@ -172,7 +172,7 @@ function updateVolumeSlider() {
 function updateVolumeProgressBar() {
     let x = (volumeSlider.value - volMinMax.min) / volRange * 100;
     // let x = (volumeObj.volume - volMinMax.min) / volRange * 100;
-    let progressGradient = 'linear-gradient(90deg, rgb(245, 158, 11) '+x+'%, #778 '+x+'%)';
+    let progressGradient = 'linear-gradient(90deg, rgb(245, 158, 11) '+x+'%, rgb(64,64,64) '+x+'%)';
     volumeSlider.style.background = progressGradient;
 }
 // Update filter displays
