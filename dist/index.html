@@ -26,7 +26,7 @@
           <div
             class="bg-black border border-gray-800 p-2 w-10 h-10 rounded-full inline-grid"
           >
-            <i class="fa fa-wifi text-xs self-center text-center"></i>
+            <i data-feather="wifi" class="justify-self-center self-center"></i>
           </div>
           <div class="ml-2 inline-grid align-middle">
             <div class="" id="networkSSID">(not connected)</div>
@@ -39,7 +39,10 @@
           <div
             class="bg-black border border-gray-800 p-2 w-10 h-10 rounded-full inline-grid ml-2"
           >
-            <i class="fa fa-signal text-xs self-center text-center"></i>
+            <i
+              data-feather="bar-chart"
+              class="justify-self-center self-center"
+            ></i>
           </div>
         </div>
       </div>
@@ -80,10 +83,10 @@
         <div
           class="w-full grid grid-flow-col grid-cols-4 mt-2 mb-6 bg-black rounded h-12"
         >
-          <button class="btn volumeBtn rounded-l" value="-5">-5</button>
-          <button class="btn volumeBtn" value="-1">-1</button>
-          <button class="btn volumeBtn" value="1">+1</button>
-          <button class="btn volumeBtn rounded-r" value="5">+5</button>
+          <button class="btn volumeBtn rounded-l" value="-5">- 5</button>
+          <button class="btn volumeBtn" value="-1">- 1</button>
+          <button class="btn volumeBtn" value="1">+ 1</button>
+          <button class="btn volumeBtn rounded-r" value="5">+ 5</button>
         </div>
       </div>
 
@@ -93,12 +96,14 @@
     -------------------------------------------------->
       <div class="filters my-6">
         <div
-          class="filters_name text-gray-400 text-center text-sm mb-4 bg-black border border-gray-800 rounded-full w-full py-2"
+          class="filters_name text-gray-400 text-center text-sm mb-4 bg-black border border-gray-800 rounded-full w-full h-9 grid"
         >
-          <span class="text-white"
-            >Filter <span id="filter_val">2</span>:
-          </span>
-          <span id="filter_name" class="font-light">Slow Roll-off</span>
+          <div class="self-center justify-self-center">
+            <span class="text-white"
+              >Filter <span id="filter_val">2</span>:
+            </span>
+            <span id="filter_name" class="font-light">Slow Roll-off</span>
+          </div>
         </div>
         <div
           class="filters_buttons grid grid-flow-col grid-cols-4 h-10 bg-black"
@@ -117,14 +122,22 @@
       <div class="grid grid-flow-col w-full my-4">
         <div class="text-gray-400 text-sm">
           <span class="font-extralight">XO 2: </span>
-          <strong>49.152MHz</strong>
+          <span>49.152MHz</span>
         </div>
         <div class="text-gray-400 text-sm text-right">
           <span class="font-extralight">Delay: </span>
-          <strong>0.2sec</strong>
+          <span>0.2sec</span>
         </div>
       </div>
     </div>
   </body>
   <script src="main.js"></script>
+  <script src="scripts/feather.min.js"></script>
+  <script>
+    feather.replace({
+      width: 16,
+      height: 16,
+      'stroke-width': 2,
+    });
+  </script>
 </html>

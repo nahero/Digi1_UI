@@ -23839,6 +23839,9 @@ video {
   border-color: rgba(38, 38, 38, var(--tw-border-opacity));
   border-width: 1px;
   border-right-width: 0px;
+  font-weight: 200;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   outline: 2px solid transparent;
   outline-offset: 0;
   --tw-text-opacity: 1;
@@ -23851,8 +23854,6 @@ video {
 }
 
 button.active {
-  --tw-bg-opacity: 1;
-  background-color: rgba(38, 38, 38, var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgba(251, 191, 36, var(--tw-text-opacity));
 }
