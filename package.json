@@ -8,6 +8,7 @@
     "jshint": "^2.12.0",
     "mqtt": "^4.2.6",
     "postcss": "^8.1.14",
+    "svelte-range-slider-pips": "^1.5.0",
     "tailwindcss": "^2.0.1"
   },
   "devDependencies": {

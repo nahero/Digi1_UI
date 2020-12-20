@@ -62,8 +62,9 @@ socket.onerror = function(error) {
 let ssidObj = {"ssid": "not connected", "IPaddress" : "192.168.0.0"};
 let rssiObj = {"rssi": "-60"};
 let filterObj = {"filter": 2};
-let volumeObj = {"volume": 220};
+let volumeObj = {"volume": 225};
 let volMinMax = {"min": 200, "max": 255};
+let volRange = volMinMax.max - volMinMax.min;
 let filters = [
     {
         "filter": 1,
@@ -102,7 +103,7 @@ const networkRSSI = document.querySelector('#networkRSSI');
 const mode = document.querySelector('#mode');
 const sampleRate = document.querySelector('#sampleRate');
 const volumeDisplay = document.querySelector('#volumeDisplay');
-const volumeInput = document.querySelector('#volumeInput');
+const volumeSlider = document.querySelector('#volumeSlider');
 const volumeBtns = document.querySelectorAll('.volumeBtn');
 const filterBtns = document.querySelectorAll('.filterBtn');
 const filterValDisplay = document.querySelector('#filter_val');
@@ -110,12 +111,20 @@ const filterNameDisplay = document.querySelector('#filter_name');
 
 
 // SET VOLUME
-volumeInput.addEventListener('change', event => {
+volumeSlider.addEventListener('change', event => {
     let newValue = parseInt(event.target.value);
     volumeObj.volume = constrain(newValue, volMinMax.min, volMinMax.max);
     console.log("volumeObj: ", volumeObj);
     socket.send(JSON.stringify(volumeObj));
     setVolumeDisplay();
+    updateVolumeProgressBar();
+});
+
+volumeSlider.addEventListener('touchmove', event => { // for mobile devices
+    updateVolumeProgressBar();
+});
+volumeSlider.addEventListener('mousemove', event => { // for desktop
+    updateVolumeProgressBar();
 });
 volumeBtns.forEach(item => {
     item.addEventListener('click', event => {
@@ -124,7 +133,8 @@ volumeBtns.forEach(item => {
         console.log("volumeObj: ", volumeObj);
         socket.send(JSON.stringify(volumeObj));
         setVolumeDisplay();
-        updateVolumeInput();
+        updateVolumeSlider();
+        updateVolumeProgressBar();
     });
 });
 
@@ -145,8 +155,15 @@ function setVolumeDisplay() {
     volumeDisplay.textContent = volumeObj.volume;
 }
 // Update volume input
-function updateVolumeInput() {
-    volumeInput.value = volumeObj.volume;
+function updateVolumeSlider() {
+    volumeSlider.value = volumeObj.volume;
+}
+// Update volume progress bar color fill
+function updateVolumeProgressBar() {
+    let x = (volumeSlider.value - volMinMax.min) / volRange * 100;
+    // let x = (volumeObj.volume - volMinMax.min) / volRange * 100;
+    let progressGradient = 'linear-gradient(90deg, rgb(245, 158, 11) '+x+'%, #778 '+x+'%)';
+    volumeSlider.style.background = progressGradient;
 }
 // Update filter displays
 function updateFilterDisplay() {
@@ -184,7 +201,7 @@ function recVolume(value) {
     let newValue = parseInt(value);
     volumeObj.volume = constrain(newValue, volMinMax.min, volMinMax.max);
     setVolumeDisplay();
-    updateVolumeInput();
+    updateVolumeSlider();
 }
 // Receive filter from device
 function recFilter(value) {
