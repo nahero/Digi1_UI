@@ -75,6 +75,8 @@ let filterObj = {"filter": 2};
 let volumeObj = {"volume": 225};
 let volMinMax = {"min": 200, "max": 255};
 let volRange = volMinMax.max - volMinMax.min;
+let modeObj = {"mode": "no signal"};
+let srObj = {"sr": "0"};
 let filters = [
     {
         "filter": 1,
@@ -197,6 +199,14 @@ function updateNetworkDisplay() {
 function updateRSSIDisplay() {
     networkRSSI.textContent = rssiObj.rssi + "dB";
 }
+// Update Mode display
+function updateModeDisplay() {
+    mode.textContent = modeObj.mode;
+}
+// Update SR display
+function updateSRDisplay() {
+    sr.textContent = srObj.sr + "kHz";
+}
 
 // Constrain to min/max range
 function constrain(num, min, max) {
@@ -212,6 +222,7 @@ function recVolume(value) {
     volumeObj.volume = constrain(newValue, volMinMax.min, volMinMax.max);
     setVolumeDisplay();
     updateVolumeSlider();
+    updateVolumeProgressBar();
 }
 // Receive filter from device
 function recFilter(value) {
@@ -230,6 +241,14 @@ function recRSSI(value) {
     updateRSSIDisplay();
 }
 // Receive sound mode from device
+function recMode(value) {
+    modeObj.mode = value;
+    updateModeDisplay();
+}
 // Receive sample rate from device
+function recSR(value) {
+    srObj.sr = value;
+    updateSRDisplay();
+}
 // Receive crystal info from device
 // Receive delay info from device
