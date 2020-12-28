@@ -1,3 +1,6 @@
+body {
+  min-height: 100vh;
+}
 .bg-dark {
   background: linear-gradient(to bottom, #252525 20%, #121212 80%);
 }
