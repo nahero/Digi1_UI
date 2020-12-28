@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 .btn {
-  @apply border border-gray-800 border-r-0 text-gray-200 hover:bg-gray-800 text-lg font-extralight outline-none;
+  @apply text-gray-200 hover:bg-gray-800 outline-none;
+  border-right: 1px solid rgb(0 0 0 / 30%);
+  border-left: 1px solid rgb(100 100 100 / 20%);
   outline: none !important;
 }
+.btn:first-of-type {
+  border-left: 0;
+}
 .btn:last-of-type {
-  @apply border;
+  border-right: 0;
 }
 button.active {
   @apply text-yellow-400;

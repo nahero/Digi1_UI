@@ -43,8 +43,8 @@ socket.onmessage = function(event) {
         else if (msgObj.rssi) {
             recRSSI(msgObj.rssi);
         }
-        else if (msgObj.xo) {
-            recXO(msgObj.xo, msgObj.freq);
+        else if (msgObj.fifoXOfreq) {
+            recXO(msgObj.fifoXO, msgObj.fifoXOfreq);
         }
         else if (msgObj.delay) {
             recDelay(msgObj.delay);
@@ -77,6 +77,8 @@ let volMinMax = {"min": 200, "max": 255};
 let volRange = volMinMax.max - volMinMax.min;
 let modeObj = {"mode": "no signal"};
 let srObj = {"sr": "0"};
+let xoObj = {"fifoXO": "0", "fifoXOfreq": "0.00"};
+let delayObj = {"delay": "0.0"};
 let filters = [
     {
         "filter": 1,
@@ -120,6 +122,9 @@ const volumeBtns = document.querySelectorAll('.volumeBtn');
 const filterBtns = document.querySelectorAll('.filterBtn');
 const filterValDisplay = document.querySelector('#filter_val');
 const filterNameDisplay = document.querySelector('#filter_name');
+const XO = document.querySelector('#XO');
+const XOFreq = document.querySelector('#XOFreq');
+const delay = document.querySelector('#delay');
 
 
 // SET VOLUME
@@ -174,7 +179,7 @@ function updateVolumeSlider() {
 function updateVolumeProgressBar() {
     let x = (volumeSlider.value - volMinMax.min) / volRange * 100;
     // let x = (volumeObj.volume - volMinMax.min) / volRange * 100;
-    let progressGradient = 'linear-gradient(90deg, rgb(245, 158, 11) '+x+'%, rgb(64,64,64) '+x+'%)';
+    let progressGradient = 'linear-gradient(90deg, rgb(255, 255, 255) '+x+'%, rgb(64,64,64) '+x+'%)';
     volumeSlider.style.background = progressGradient;
 }
 // Update filter displays
@@ -205,7 +210,16 @@ function updateModeDisplay() {
 }
 // Update SR display
 function updateSRDisplay() {
-    sr.textContent = srObj.sr + "kHz";
+    sampleRate.textContent = srObj.sr;
+}
+// Update XO display
+function updateXODisplay() {
+    XO.textContent = "XO " + xoObj.fifoXO + ":";
+    XOFreq.textContent = xoObj.fifoXOfreq;
+}
+// Update delay display
+function updateDelayDisplay() {
+    delay.textContent = delayObj.delay;
 }
 
 // Constrain to min/max range
@@ -251,4 +265,13 @@ function recSR(value) {
     updateSRDisplay();
 }
 // Receive crystal info from device
+function recXO(fifoXO, fifoXOfreq) {
+    xoObj.fifoXO = fifoXO;
+    xoObj.fifoXOfreq = fifoXOfreq;
+    updateXODisplay();
+}
 // Receive delay info from device
+function recDelay(value) {
+    delayObj.delay = value;
+    updateDelayDisplay();
+}

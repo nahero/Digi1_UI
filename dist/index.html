@@ -22,23 +22,21 @@
       <!-- Network info
     -------------------------------------------------->
       <div class="grid grid-flow-col w-full my-2">
-        <div class="text-gray-400 text-sm">
-          <div
-            class="bg-black border border-gray-800 p-2 w-10 h-10 rounded-full inline-grid"
-          >
+        <div class="text-sm">
+          <div class="inline-grid h-10 align-middle">
             <i data-feather="wifi" class="justify-self-center self-center"></i>
           </div>
-          <div class="ml-2 inline-grid align-middle">
-            <div class="" id="networkSSID">(not connected)</div>
+          <div class="ml-2 inline-grid align-middle text-gray-400">
+            <div class="" id="networkSSID">SSID...</div>
             <div class="font-extralight text-xs" id="IPaddress"></div>
           </div>
         </div>
 
-        <div class="text-gray-400 text-sm text-right">
-          <span class="" id="networkRSSI"></span>
-          <div
-            class="bg-black border border-gray-800 p-2 w-10 h-10 rounded-full inline-grid ml-2"
-          >
+        <div class="text-sm text-right">
+          <div class="inline-grid align-middle">
+            <span class="text-gray-400" id="networkRSSI">signal...</span>
+          </div>
+          <div class="inline-grid align-middle ml-2 h-10">
             <i
               data-feather="bar-chart"
               class="justify-self-center self-center"
@@ -52,10 +50,10 @@
       <!-- MODE & SAMPLE RATE
     -------------------------------------------------->
       <div
-        class="bg-black border border-gray-800 font-medium grid grid-flow-col h-12 m-auto my-6 px-8 rounded-full text-xl w-60"
+        class="panel--inset grid grid-flow-col h-10 m-auto my-6 px-8 rounded-full text-lg w-60"
       >
-        <div class="mode self-center" id="mode">PCM</div>
-        <div class="sr self-center text-right" id="sampleRate">96kHz</div>
+        <div class="mode self-center" id="mode">no signal</div>
+        <div class="sr self-center text-right" id="sampleRate">-kHz</div>
       </div>
 
       <!-- VOLUME 
@@ -81,7 +79,7 @@
 
         <!-- Precise volume controls +/-1 and +/-5 -->
         <div
-          class="w-full grid grid-flow-col grid-cols-4 mt-2 mb-6 bg-black rounded h-12"
+          class="panel--embossed w-full rounded grid grid-flow-col grid-cols-4 mt-2 mb-6 h-12"
         >
           <button class="btn volumeBtn rounded-l" value="-5">- 5</button>
           <button class="btn volumeBtn" value="-1">- 1</button>
@@ -96,7 +94,7 @@
     -------------------------------------------------->
       <div class="filters my-6">
         <div
-          class="filters_name text-gray-400 text-center text-sm mb-4 bg-black border border-gray-800 rounded-full w-full h-9 grid"
+          class="filters_name text-gray-400 text-center text-sm mb-4 rounded-full w-full grid"
         >
           <div class="self-center justify-self-center">
             <span class="text-white"
@@ -106,7 +104,7 @@
           </div>
         </div>
         <div
-          class="filters_buttons grid grid-flow-col grid-cols-4 h-10 bg-black"
+          class="filters_buttons panel--embossed rounded grid grid-flow-col grid-cols-4 h-10 bg-black"
         >
           <button class="btn filterBtn f1 rounded-l" value="1">F1</button>
           <button class="btn filterBtn f2" value="2">F2</button>
@@ -121,12 +119,12 @@
     -------------------------------------------------->
       <div class="grid grid-flow-col w-full my-4">
         <div class="text-gray-400 text-sm">
-          <span class="font-extralight">XO 2: </span>
-          <span>49.152MHz</span>
+          <span class="font-extralight" id="XO">XO 0: </span>
+          <span id="XOFreq">0.0MHz</span>
         </div>
         <div class="text-gray-400 text-sm text-right">
           <span class="font-extralight">Delay: </span>
-          <span>0.2sec</span>
+          <span id="delay">0.0s</span>
         </div>
       </div>
     </div>
@@ -135,8 +133,8 @@
   <script src="scripts/feather.min.js"></script>
   <script>
     feather.replace({
-      width: 16,
-      height: 16,
+      width: 18,
+      height: 18,
       'stroke-width': 2,
     });
   </script>

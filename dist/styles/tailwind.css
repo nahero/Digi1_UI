@@ -23835,22 +23835,21 @@ video {
 }
 
 .btn {
-  --tw-border-opacity: 1;
-  border-color: rgba(38, 38, 38, var(--tw-border-opacity));
-  border-width: 1px;
-  border-right-width: 0px;
-  font-weight: 200;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
   outline: 2px solid transparent;
   outline-offset: 0;
   --tw-text-opacity: 1;
   color: rgba(229, 229, 229, var(--tw-text-opacity));
+  border-right: 1px solid rgb(0 0 0 / 30%);
+  border-left: 1px solid rgb(100 100 100 / 20%);
   outline: none !important;
 }
 
+.btn:first-of-type {
+  border-left: 0;
+}
+
 .btn:last-of-type {
-  border-width: 1px;
+  border-right: 0;
 }
 
 button.active {
